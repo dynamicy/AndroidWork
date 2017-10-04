@@ -1,6 +1,9 @@
 package work.example.chris.jsondealer;
 
 import android.Manifest;
+import android.app.LoaderManager;
+import android.content.CursorLoader;
+import android.content.Loader;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -15,11 +18,12 @@ import work.example.chris.jsondealer.component.BillDataRecyclerViewAdapter;
 import work.example.chris.jsondealer.model.BillModel;
 import work.example.chris.jsondealer.model.BillModelSets;
 import work.example.chris.jsondealer.utils.BillDBHelper;
-import work.example.chris.jsondealer.utils.JsonHelper;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
     private final static String TAG = MainActivity.class.getSimpleName();
+
+    private final static int LOADER = 100;
 
     private RecyclerView recyclerView;
 
@@ -33,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager linerLayouManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linerLayouManager);
+        recyclerView.setHasFixedSize(true);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) ==
             PackageManager.PERMISSION_GRANTED) {
@@ -44,8 +49,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        adapter = new BillDataRecyclerViewAdapter();
-        recyclerView.setAdapter(adapter);
+        setupRecyclerView();
+
+        getLoaderManager().initLoader(LOADER, null, this);
     }
 
     @Override
@@ -92,5 +98,26 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG, "Name: " + item.getName());
             Log.d(TAG, "Price: " + item.getPrice());
         }
+    }
+
+    private void setupRecyclerView() {
+        adapter = new BillDataRecyclerViewAdapter();
+        recyclerView.setAdapter(adapter);
+        getLoaderManager().restartLoader(LOADER, null, this);
+    }
+
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        return new CursorLoader(this, BillContract.CONTENT_URI, null, null, null, BillContract.NAME);
+    }
+
+    @Override
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        this.adapter.setCursor(data);
+    }
+
+    @Override
+    public void onLoaderReset(Loader<Cursor> loader) {
+        this.adapter.setCursor(null);
     }
 }

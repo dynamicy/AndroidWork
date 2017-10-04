@@ -37,7 +37,7 @@ public class BillDataProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
-        billDBHelper = getInstance();
+        billDBHelper = new BillDBHelper(getContext());
         return true;
     }
 
@@ -63,8 +63,9 @@ public class BillDataProvider extends ContentProvider {
                 break;
         }
 
-        cursor = getInstance().getReadableDatabase().query(BillContract.TableName,
-                                                           projection, selection, selectionArgs, null, null, sortOrder);
+        cursor = billDBHelper.getReadableDatabase()
+                              .query(BillContract.TableName, projection,
+                                     selection, selectionArgs, null, null, sortOrder);
 
         return cursor;
     }

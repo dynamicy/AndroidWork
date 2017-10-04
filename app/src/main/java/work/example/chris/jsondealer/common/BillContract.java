@@ -31,8 +31,11 @@ public class BillContract {
     /**
      * SQL sentence
      */
-    public final static String crateTable = "create table bill (_id integer primary key, "
-                                            + "cdate datetime, name varchar, price integer)";
+    public final static String crateTable = "create table " + BillContract.TableName + "("
+                                            + BillContract.ID + " integer primary key, "
+                                            + BillContract.DATE + " datetime, "
+                                            + BillContract.NAME + " varchar, "
+                                            + BillContract.PRICE + "integer)";
 
     /**
      * Content Provider

@@ -1,5 +1,6 @@
 package work.example.chris.jsondealer.component;
 
+import android.app.LoaderManager;
 import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -19,14 +20,14 @@ public class BillDataRecyclerViewAdapter extends RecyclerView.Adapter<BillDataVi
     public BillDataViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.layout_bill_data, parent, false);
-        BillDataViewHolder billDataViewHolder = new BillDataViewHolder(view);
-        return billDataViewHolder;
+        return new BillDataViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(BillDataViewHolder holder, int position) {
 
         cursor.moveToPosition(position);
+
         BillRecord billRecord = new BillRecord(cursor);
 
         holder.getDataTextView().setText(billRecord.getCdate());
@@ -37,7 +38,11 @@ public class BillDataRecyclerViewAdapter extends RecyclerView.Adapter<BillDataVi
 
     @Override
     public int getItemCount() {
-        return 0;
+        if (cursor != null) {
+            return cursor.getCount();
+        } else {
+            return 0;
+        }
     }
 
     public Cursor getCursor() {
@@ -46,5 +51,6 @@ public class BillDataRecyclerViewAdapter extends RecyclerView.Adapter<BillDataVi
 
     public void setCursor(Cursor cursor) {
         this.cursor = cursor;
+        notifyDataSetChanged();
     }
 }

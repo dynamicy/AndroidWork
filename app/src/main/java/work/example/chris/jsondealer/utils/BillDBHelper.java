@@ -27,7 +27,7 @@ public class BillDBHelper extends SQLiteOpenHelper {
     }
 
     private BillDBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version,
-                        DatabaseErrorHandler errorHandler) {
+                         DatabaseErrorHandler errorHandler) {
         super(context, name, factory, version, errorHandler);
     }
 
