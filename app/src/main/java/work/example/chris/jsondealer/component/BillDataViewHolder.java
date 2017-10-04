@@ -4,6 +4,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
+import work.example.chris.jsondealer.R;
+
 public class BillDataViewHolder extends RecyclerView.ViewHolder {
 
     private TextView dataTextView;
@@ -13,7 +15,12 @@ public class BillDataViewHolder extends RecyclerView.ViewHolder {
     private TextView priceTextView;
 
     public BillDataViewHolder(View itemView) {
+
         super(itemView);
+
+        dataTextView = itemView.findViewById(R.id.dataTextView);
+        nameTextView = itemView.findViewById(R.id.nameTextView);
+        priceTextView = itemView.findViewById(R.id.priceTextView);
     }
 
     public TextView getDataTextView() {

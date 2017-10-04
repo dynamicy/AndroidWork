@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import work.example.chris.jsondealer.R;
+import work.example.chris.jsondealer.model.BillRecord;
 
 public class BillDataRecyclerViewAdapter extends RecyclerView.Adapter<BillDataViewHolder> {
 
@@ -26,6 +27,11 @@ public class BillDataRecyclerViewAdapter extends RecyclerView.Adapter<BillDataVi
     public void onBindViewHolder(BillDataViewHolder holder, int position) {
 
         cursor.moveToPosition(position);
+        BillRecord billRecord = new BillRecord(cursor);
+
+        holder.getDataTextView().setText(billRecord.getCdate());
+        holder.getNameTextView().setText(billRecord.getName());
+        holder.getPriceTextView().setText(billRecord.getPrice());
 
     }
 

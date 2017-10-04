@@ -1,13 +1,17 @@
 package work.example.chris.jsondealer;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import work.example.chris.jsondealer.common.BillContract;
+import work.example.chris.jsondealer.component.BillDataRecyclerViewAdapter;
 import work.example.chris.jsondealer.model.BillModel;
 import work.example.chris.jsondealer.model.BillModelSets;
 import work.example.chris.jsondealer.utils.BillDBHelper;
@@ -19,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
+    private BillDataRecyclerViewAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,17 +34,23 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.LayoutManager linerLayouManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linerLayouManager);
 
-        BillModelSets billModelLists = JsonHelper.getModelFromRaw(this, R.raw.bill);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) ==
+            PackageManager.PERMISSION_GRANTED) {
+            Cursor cursor = getContentResolver().query(BillContract.CONTENT_URI, null, null, null, null);
+        }
+    }
 
-        dumpDataSets(billModelLists);
+    @Override
+    protected void onStart() {
+        super.onStart();
 
+        adapter = new BillDataRecyclerViewAdapter();
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
-        readDataFromProvider();
     }
 
     private void readDataFromProvider() {
