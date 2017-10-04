@@ -1,0 +1,54 @@
+{
+  "expenses": [
+    {
+      "cdate": "2016-11-08",
+      "info": "Apple",
+      "cost": 120
+    },
+    {
+      "cdate": "2016-11-08",
+      "info": "Banna",
+      "cost": 80
+    },
+    {
+      "cdate": "2016-11-09",
+      "info": "Car",
+      "cost": 40
+    },
+    {
+      "cdate": "2016-11-10",
+      "info": "Dog",
+      "cost": 35
+    },
+    {
+      "cdate": "2016-11-11",
+      "info": "Elephent",
+      "cost": 1100
+    },
+    {
+      "cdate": "2016-11-13",
+      "info": "Fork",
+      "cost": 115
+    },
+    {
+      "cdate": "2016-11-13",
+      "info": "Gas",
+      "cost": 1120
+    },
+    {
+      "cdate": "2016-11-14",
+      "info": "Headset",
+      "cost": 75
+    },
+    {
+      "cdate": "2016-11-14",
+      "info": "Ice Cream",
+      "cost": 75
+    },
+    {
+      "cdate": "2016-11-14",
+      "info": "Jelly",
+      "cost": 55
+    }
+  ]
+}

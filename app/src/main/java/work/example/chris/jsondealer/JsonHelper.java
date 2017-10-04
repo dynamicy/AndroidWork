@@ -7,9 +7,6 @@ import android.util.Log;
 import java.io.IOException;
 import java.io.InputStream;
 
-/**
- * Created by chris on 04/10/2017.
- */
 public class JsonHelper {
 
     private final static String TAG = JsonHelper.class.getSimpleName();
