@@ -30,9 +30,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        readDataFromJson();
+        readDataFromProvider();
     }
 
+    private void readDataFromProvider() {
+        Cursor cursor = getContentResolver().query(BillContract.CONTENT_URI, null, null, null, null);
+
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(cursor.getColumnIndex(BillContract.ID));
+            String date = cursor.getString(cursor.getColumnIndex(BillContract.DATE));
+            String name = cursor.getString(cursor.getColumnIndex(BillContract.NAME));
+            int price = cursor.getInt(cursor.getColumnIndex(BillContract.PRICE));
+
+            Log.d(TAG, "id: " + id + ", date: " + date + ", name: " + name + ", price: " + price);
+        }
+    }
 
     /**
      * Dump data info
