@@ -1,54 +1,54 @@
 {
-  "expenses": [
+  "retail": [
     {
       "cdate": "2016-11-08",
-      "info": "Apple",
-      "cost": 120
+      "name": "Apple",
+      "price": 120
     },
     {
       "cdate": "2016-11-08",
-      "info": "Banna",
-      "cost": 80
+      "name": "Banna",
+      "price": 80
     },
     {
       "cdate": "2016-11-09",
-      "info": "Car",
-      "cost": 40
+      "name": "Car",
+      "price": 40
     },
     {
       "cdate": "2016-11-10",
-      "info": "Dog",
-      "cost": 35
+      "name": "Dog",
+      "price": 35
     },
     {
       "cdate": "2016-11-11",
-      "info": "Elephent",
-      "cost": 1100
+      "name": "Elephent",
+      "price": 1100
     },
     {
       "cdate": "2016-11-13",
-      "info": "Fork",
-      "cost": 115
+      "name": "Fork",
+      "price": 115
     },
     {
       "cdate": "2016-11-13",
-      "info": "Gas",
-      "cost": 1120
+      "name": "Gas",
+      "price": 1120
     },
     {
       "cdate": "2016-11-14",
-      "info": "Headset",
-      "cost": 75
+      "name": "Headset",
+      "price": 75
     },
     {
       "cdate": "2016-11-14",
-      "info": "Ice Cream",
-      "cost": 75
+      "name": "Ice Cream",
+      "price": 75
     },
     {
       "cdate": "2016-11-14",
-      "info": "Jelly",
-      "cost": 55
+      "name": "Jelly",
+      "price": 55
     }
   ]
 }
