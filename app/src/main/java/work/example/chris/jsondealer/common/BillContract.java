@@ -1,5 +1,7 @@
 package work.example.chris.jsondealer.common;
 
+import android.net.Uri;
+
 import work.example.chris.jsondealer.R;
 
 public class BillContract {
@@ -31,5 +33,16 @@ public class BillContract {
      */
     public final static String crateTable = "create table bill (_id integer primary key, "
                                             + "cdate datetime, name varchar, price integer)";
+
+    /**
+     * Content Provider
+     */
+    public final static String AUTHORITY = "work.example.chris.jsondeale";
+
+    public final static Uri CONTENT_URI = new Uri.Builder()
+            .scheme("content")
+            .authority(AUTHORITY)
+            .appendPath(TableName)
+            .build();
 
 }
