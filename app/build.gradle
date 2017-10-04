@@ -30,4 +30,5 @@ dependencies {
 
     // Gson is a Java library that can be used to convert Java Objects into their JSON representatio
     compile 'com.google.code.gson:gson:2.7'
+    compile 'com.android.support:recyclerview-v7:26.+'
 }

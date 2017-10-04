@@ -3,6 +3,8 @@ package work.example.chris.jsondealer;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import work.example.chris.jsondealer.common.BillContract;
@@ -15,10 +17,16 @@ public class MainActivity extends AppCompatActivity {
 
     private final static String TAG = MainActivity.class.getSimpleName();
 
+    private RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        RecyclerView.LayoutManager linerLayouManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linerLayouManager);
 
         BillModelSets billModelLists = JsonHelper.getModelFromRaw(this, R.raw.bill);
 
