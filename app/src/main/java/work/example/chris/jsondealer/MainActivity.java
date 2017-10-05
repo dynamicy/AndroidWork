@@ -13,6 +13,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 
 import work.example.chris.jsondealer.common.BillContract;
@@ -115,6 +116,16 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         RecyclerView.LayoutManager linerLayouManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linerLayouManager);
         recyclerView.setHasFixedSize(true);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        menu.add("Menu1");
+        menu.add("Menu2");
+
+        getMenuInflater().inflate(R.menu.layout_menu_mainactivity, menu);
+        return true;
     }
 
     @Override
