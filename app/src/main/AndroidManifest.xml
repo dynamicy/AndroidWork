@@ -19,7 +19,7 @@
 
         <provider
             android:name=".utils.BillDataProvider"
-            android:authorities="work.example.chris.jsondeale" />
+            android:authorities="work.example.chris.jsondealer" />
     </application>
 
 </manifest>

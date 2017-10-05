@@ -54,13 +54,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         getLoaderManager().initLoader(LOADER, null, this);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-//        readDataFromProvider();
-    }
-
     private void readDataFromProvider() {
         Cursor cursor = getContentResolver().query(BillContract.CONTENT_URI, null, null, null, null);
 

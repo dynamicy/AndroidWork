@@ -1,6 +1,5 @@
 package work.example.chris.jsondealer.component;
 
-import android.app.LoaderManager;
 import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
