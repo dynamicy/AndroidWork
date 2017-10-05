@@ -51,4 +51,9 @@ public class BillContract {
             .appendPath(TableName)
             .build();
 
+    /**
+     * Bundle Key
+     */
+    public final static String BillRecordBundleKey = "BillRecord";
+
 }

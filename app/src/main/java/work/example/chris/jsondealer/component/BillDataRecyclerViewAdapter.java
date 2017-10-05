@@ -15,6 +15,8 @@ public class BillDataRecyclerViewAdapter extends RecyclerView.Adapter<BillDataVi
 
     private Cursor cursor;
 
+    private OnItemClickListener onItemClickListener;
+
     @Override
     public BillDataViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
@@ -23,16 +25,21 @@ public class BillDataRecyclerViewAdapter extends RecyclerView.Adapter<BillDataVi
     }
 
     @Override
-    public void onBindViewHolder(BillDataViewHolder holder, int position) {
+    public void onBindViewHolder(BillDataViewHolder holder, final int position) {
 
         cursor.moveToPosition(position);
 
-        BillRecord billRecord = new BillRecord(cursor);
+        final BillRecord billRecord = new BillRecord(cursor);
 
         holder.getDataTextView().setText(billRecord.getCdate());
         holder.getNameTextView().setText(billRecord.getName());
         holder.getPriceTextView().setText(String.valueOf(billRecord.getPrice()));
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onItemClickListener.onItemClick(position, billRecord);
+            }
+        });
     }
 
     @Override
@@ -51,5 +58,13 @@ public class BillDataRecyclerViewAdapter extends RecyclerView.Adapter<BillDataVi
     public void setCursor(Cursor cursor) {
         this.cursor = cursor;
         notifyDataSetChanged();
+    }
+
+    public OnItemClickListener getOnItemClickListener() {
+        return onItemClickListener;
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
     }
 }

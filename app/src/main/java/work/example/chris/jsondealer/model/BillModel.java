@@ -1,6 +1,8 @@
 package work.example.chris.jsondealer.model;
 
-public class BillModel {
+import java.io.Serializable;
+
+public class BillModel implements Serializable {
 
     private String cdate;
 

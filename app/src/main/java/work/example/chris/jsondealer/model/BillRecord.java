@@ -2,9 +2,11 @@ package work.example.chris.jsondealer.model;
 
 import android.database.Cursor;
 
+import java.io.Serializable;
+
 import work.example.chris.jsondealer.common.BillContract;
 
-public class BillRecord extends BillModel {
+public class BillRecord extends BillModel implements Serializable {
 
     private int id;
 

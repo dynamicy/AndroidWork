@@ -2,6 +2,7 @@ package work.example.chris.jsondealer;
 
 import android.app.LoaderManager;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -12,11 +13,13 @@ import android.util.Log;
 
 import work.example.chris.jsondealer.common.BillContract;
 import work.example.chris.jsondealer.component.BillDataRecyclerViewAdapter;
+import work.example.chris.jsondealer.component.OnItemClickListener;
 import work.example.chris.jsondealer.model.BillModel;
 import work.example.chris.jsondealer.model.BillModelSets;
+import work.example.chris.jsondealer.model.BillRecord;
 import work.example.chris.jsondealer.utils.BillDBHelper;
 
-public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>, OnItemClickListener {
 
     private final static String TAG = MainActivity.class.getSimpleName();
 
@@ -86,7 +89,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     private void setupRecyclerView() {
         adapter = new BillDataRecyclerViewAdapter();
+        adapter.setOnItemClickListener(this);
         recyclerView.setAdapter(adapter);
+
         getLoaderManager().restartLoader(LOADER, null, this);
     }
 
@@ -110,5 +115,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         this.adapter.setCursor(null);
+    }
+
+    @Override
+    public void onItemClick(int position, BillRecord billRecord) {
+        Intent intentToItemDetail = new Intent(this, ItemDetailActivity.class);
+        intentToItemDetail.putExtra(BillContract.BillRecordBundleKey, billRecord);
+        startActivity(intentToItemDetail);
     }
 }
