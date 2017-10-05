@@ -32,7 +32,7 @@ public class BillDataRecyclerViewAdapter extends RecyclerView.Adapter<BillDataVi
 
         holder.getDataTextView().setText(billRecord.getCdate());
         holder.getNameTextView().setText(billRecord.getName());
-        holder.getPriceTextView().setText(billRecord.getPrice());
+        holder.getPriceTextView().setText(String.valueOf(billRecord.getPrice()));
 
     }
 

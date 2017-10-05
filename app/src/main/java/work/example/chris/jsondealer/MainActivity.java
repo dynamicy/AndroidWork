@@ -18,6 +18,7 @@ import work.example.chris.jsondealer.component.BillDataRecyclerViewAdapter;
 import work.example.chris.jsondealer.model.BillModel;
 import work.example.chris.jsondealer.model.BillModelSets;
 import work.example.chris.jsondealer.utils.BillDBHelper;
+import work.example.chris.jsondealer.utils.JsonHelper;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -34,10 +35,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        RecyclerView.LayoutManager linerLayouManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(linerLayouManager);
-        recyclerView.setHasFixedSize(true);
+        initRecyclerView();
+
+        BillModelSets billModelLists = JsonHelper.getModelFromRaw(this, R.raw.bill);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) ==
             PackageManager.PERMISSION_GRANTED) {
@@ -57,6 +57,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     protected void onResume() {
         super.onResume();
+
+//        readDataFromProvider();
     }
 
     private void readDataFromProvider() {
@@ -104,6 +106,13 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         adapter = new BillDataRecyclerViewAdapter();
         recyclerView.setAdapter(adapter);
         getLoaderManager().restartLoader(LOADER, null, this);
+    }
+
+    private void initRecyclerView() {
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        RecyclerView.LayoutManager linerLayouManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(linerLayouManager);
+        recyclerView.setHasFixedSize(true);
     }
 
     @Override

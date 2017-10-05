@@ -31,11 +31,14 @@ public class BillContract {
     /**
      * SQL sentence
      */
-    public final static String crateTable = "create table " + BillContract.TableName + "("
-                                            + BillContract.ID + " integer primary key, "
-                                            + BillContract.DATE + " datetime, "
-                                            + BillContract.NAME + " varchar, "
-                                            + BillContract.PRICE + "integer)";
+    public final static String crateTable = "create table "
+            + BillContract.TableName + " ("
+            + BillContract.ID + " integer primary key, "
+            + BillContract.DATE + " datetime, "
+            + BillContract.NAME + " varchar, "
+            + BillContract.PRICE + " integer)";
+
+    public final static String crateTableRaw = "create table bill (_id integer primary key, cdate datetime, name varchar, price integer)";
 
     /**
      * Content Provider
