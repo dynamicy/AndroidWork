@@ -8,7 +8,7 @@ import work.example.chris.jsondealer.R;
 
 public class BillDataViewHolder extends RecyclerView.ViewHolder {
 
-    private TextView dataTextView;
+    private TextView dateTextView;
 
     private TextView nameTextView;
 
@@ -18,17 +18,17 @@ public class BillDataViewHolder extends RecyclerView.ViewHolder {
 
         super(itemView);
 
-        dataTextView = itemView.findViewById(R.id.dataTextView);
+        dateTextView = itemView.findViewById(R.id.dateTextView);
         nameTextView = itemView.findViewById(R.id.nameTextView);
         priceTextView = itemView.findViewById(R.id.priceTextView);
     }
 
-    public TextView getDataTextView() {
-        return dataTextView;
+    public TextView getDateTextView() {
+        return dateTextView;
     }
 
-    public void setDataTextView(TextView dataTextView) {
-        this.dataTextView = dataTextView;
+    public void setDateTextView(TextView dateTextView) {
+        this.dateTextView = dateTextView;
     }
 
     public TextView getNameTextView() {

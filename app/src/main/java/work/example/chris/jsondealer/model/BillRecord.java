@@ -1,21 +1,14 @@
 package work.example.chris.jsondealer.model;
 
 import android.database.Cursor;
-
-import java.io.Serializable;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import work.example.chris.jsondealer.common.BillContract;
 
-public class BillRecord extends BillModel implements Serializable {
+public class BillRecord extends BillModel implements Parcelable {
 
     private int id;
-
-    public BillRecord(int id, String cdate, String name, int price) {
-        this.id = id;
-        this.setCdate(cdate);
-        this.setName(name);
-        this.setPrice(price);
-    }
 
     public BillRecord(Cursor cursor) {
         id = cursor.getInt(cursor.getColumnIndex(BillContract.ID));
@@ -24,11 +17,35 @@ public class BillRecord extends BillModel implements Serializable {
         this.setPrice(cursor.getInt(cursor.getColumnIndex(BillContract.PRICE)));
     }
 
-    public int getId() {
-        return id;
+    protected BillRecord(Parcel in) {
+        id = in.readInt();
+        setCdate(in.readString());
+        setName(in.readString());
+        setPrice(in.readInt());
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public static final Creator<BillRecord> CREATOR = new Creator<BillRecord>() {
+        @Override
+        public BillRecord createFromParcel(Parcel in) {
+            return new BillRecord(in);
+        }
+
+        @Override
+        public BillRecord[] newArray(int size) {
+            return new BillRecord[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeString(getCdate());
+        parcel.writeString(getName());
+        parcel.writeInt(getPrice());
     }
 }
