@@ -43,7 +43,7 @@ public class BillContract {
     /**
      * Content Provider
      */
-    public final static String AUTHORITY = "work.example.chris.jsondeale";
+    public final static String AUTHORITY = "work.example.chris.jsondealer";
 
     public final static Uri CONTENT_URI = new Uri.Builder()
             .scheme("content")

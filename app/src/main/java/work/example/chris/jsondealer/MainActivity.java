@@ -1,13 +1,10 @@
 package work.example.chris.jsondealer;
 
-import android.Manifest;
 import android.app.LoaderManager;
 import android.content.CursorLoader;
 import android.content.Loader;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,7 +15,6 @@ import work.example.chris.jsondealer.component.BillDataRecyclerViewAdapter;
 import work.example.chris.jsondealer.model.BillModel;
 import work.example.chris.jsondealer.model.BillModelSets;
 import work.example.chris.jsondealer.utils.BillDBHelper;
-import work.example.chris.jsondealer.utils.JsonHelper;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
@@ -36,13 +32,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         setContentView(R.layout.activity_main);
 
         initRecyclerView();
-
-        BillModelSets billModelLists = JsonHelper.getModelFromRaw(this, R.raw.bill);
-
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) ==
-            PackageManager.PERMISSION_GRANTED) {
-            Cursor cursor = getContentResolver().query(BillContract.CONTENT_URI, null, null, null, null);
-        }
     }
 
     @Override
@@ -75,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         BillDBHelper billDBHelper = new BillDBHelper(this);
 
         Cursor cursor = billDBHelper.getReadableDatabase()
-                                    .query(BillContract.TableName, null, null, null, null, null, null);
+                .query(BillContract.TableName, null, null, null, null, null, null);
 
         while (cursor.moveToNext()) {
             int id = cursor.getInt(cursor.getColumnIndex(BillContract.ID));
