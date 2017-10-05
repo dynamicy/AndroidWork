@@ -14,7 +14,9 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import work.example.chris.jsondealer.common.BillContract;
 import work.example.chris.jsondealer.component.BillDataRecyclerViewAdapter;
@@ -120,12 +122,28 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
-        menu.add("Menu1");
-        menu.add("Menu2");
-
         getMenuInflater().inflate(R.menu.layout_menu_mainactivity, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.settings:
+                Toast.makeText(this, "You have selected settings Menu", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, SettingsActivity.class));
+                return true;
+            case R.id.sort:
+                Toast.makeText(this, "You have selected sort Menu", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.notification:
+                Toast.makeText(this, "You have selected notification Menu", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                Toast.makeText(this, "You have not selected any Menu", Toast.LENGTH_SHORT).show();
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override

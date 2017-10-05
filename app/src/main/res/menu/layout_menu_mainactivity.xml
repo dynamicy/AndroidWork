@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item
+        android:id="@+id/settings"
+        android:name="Setting"
+        android:icon="@mipmap/ic_launcher"
+        android:title="@string/settings" />
+
+    <item
+        android:id="@+id/sort"
+        android:name="Sort"
+        android:icon="@mipmap/ic_launcher"
+        android:title="@string/title_sort" />
+
+    <item
+        android:id="@+id/notification"
+        android:name="Notification"
+        android:icon="@mipmap/ic_launcher_round"
+        android:title="@string/title_notification" />
+
 </menu>
