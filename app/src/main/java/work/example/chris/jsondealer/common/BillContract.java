@@ -56,4 +56,10 @@ public class BillContract {
      */
     public final static String BillRecordBundleKey = "BillRecord";
 
+    /**
+     * Shared Preference
+     */
+    public final static String SharedPreference = "SharedPreference";
+
+    public final static String SortKey = "Sort";
 }

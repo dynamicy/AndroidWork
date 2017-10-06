@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     private BillDataRecyclerViewAdapter adapter;
 
+    private String order;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         });
 
         initRecyclerView();
+
+        order = getSharedPreferences(BillContract.SharedPreference, MODE_PRIVATE).getString(BillContract.SortKey, BillContract.PRICE);
     }
 
     @Override
@@ -136,6 +140,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 return true;
             case R.id.sort:
                 Toast.makeText(this, "You have selected sort Menu", Toast.LENGTH_SHORT).show();
+                order = (order.equals(BillContract.DATE)) ? BillContract.NAME : BillContract.DATE;
                 return true;
             case R.id.notification:
                 Toast.makeText(this, "You have selected notification Menu", Toast.LENGTH_SHORT).show();
@@ -148,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        return new CursorLoader(this, BillContract.CONTENT_URI, null, null, null, BillContract.NAME);
+        return new CursorLoader(this, BillContract.CONTENT_URI, null, null, null, order);
     }
 
     @Override
