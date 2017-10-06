@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         initRecyclerView();
 
-        order = getSharedPreferences(BillContract.SharedPreference, MODE_PRIVATE).getString(BillContract.SortKey, BillContract.PRICE);
+        order = getSharedPreferences(BillContract.SharedPreference, MODE_PRIVATE).getString(BillContract.SortPref, BillContract.PRICE);
     }
 
     @Override

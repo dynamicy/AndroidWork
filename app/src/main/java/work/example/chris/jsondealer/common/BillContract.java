@@ -61,5 +61,7 @@ public class BillContract {
      */
     public final static String SharedPreference = "SharedPreference";
 
-    public final static String SortKey = "Sort";
+    public final static String SortPref = "SortPref";
+
+    public final static String NotificationPref = "NotificationPref";
 }

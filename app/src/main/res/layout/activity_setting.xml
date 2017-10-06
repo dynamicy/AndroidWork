@@ -5,4 +5,10 @@
     android:layout_height="match_parent"
     tools:context="work.example.chris.jsondealer.MainActivity">
 
+    <fragment
+        android:id="@+id/fragment"
+        android:name="work.example.chris.jsondealer.SettingFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </FrameLayout>
