@@ -1,9 +1,11 @@
-package work.example.chris.jsondealer;
+package work.example.chris.jsondealer.ui.settings;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 
+import work.example.chris.jsondealer.AppCompatPreferenceActivity;
+import work.example.chris.jsondealer.R;
 import work.example.chris.jsondealer.common.BillContract;
 
 public class SettingsActivity extends AppCompatPreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener {

@@ -24,6 +24,7 @@ import work.example.chris.jsondealer.component.OnItemClickListener;
 import work.example.chris.jsondealer.model.BillModel;
 import work.example.chris.jsondealer.model.BillModelSets;
 import work.example.chris.jsondealer.model.BillRecord;
+import work.example.chris.jsondealer.ui.settings.SettingsActivity;
 import work.example.chris.jsondealer.utils.BillDBHelper;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>, OnItemClickListener {

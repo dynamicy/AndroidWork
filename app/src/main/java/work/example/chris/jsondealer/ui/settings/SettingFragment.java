@@ -1,8 +1,10 @@
-package work.example.chris.jsondealer;
+package work.example.chris.jsondealer.ui.settings;
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.support.annotation.Nullable;
+
+import work.example.chris.jsondealer.R;
 
 public class SettingFragment extends PreferenceFragment {
 
