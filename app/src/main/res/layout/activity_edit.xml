@@ -7,72 +7,72 @@
     tools:context="work.example.chris.jsondealer.EditActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/dateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="20dp"
-        tools:text="消費日期"
+        android:text="@string/date"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/ed_date"
+        android:id="@+id/dateEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="6dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="text"
         tools:text="2017-09-06"
-        app:layout_constraintLeft_toLeftOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintLeft_toLeftOf="@+id/dateTextView"
+        app:layout_constraintTop_toBottomOf="@+id/dateTextView"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintTop_creator="1" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/nameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="32dp"
-        app:layout_constraintLeft_toLeftOf="@+id/ed_date"
-        app:layout_constraintTop_toBottomOf="@+id/ed_date"
-        tools:text="說明" />
+        app:layout_constraintLeft_toLeftOf="@+id/dateEditText"
+        app:layout_constraintTop_toBottomOf="@+id/dateEditText"
+        android:text="@string/name" />
 
     <EditText
-        android:id="@+id/ed_info"
+        android:id="@+id/nameEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintLeft_toLeftOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:text="早餐" />
+        app:layout_constraintLeft_toLeftOf="@+id/nameTextView"
+        app:layout_constraintTop_toBottomOf="@+id/nameTextView"
+        tools:text="banana" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/priceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="32dp"
-        android:text="金額"
-        app:layout_constraintLeft_toLeftOf="@+id/ed_info"
-        app:layout_constraintTop_toBottomOf="@+id/ed_info" />
+        android:text="@string/price"
+        app:layout_constraintLeft_toLeftOf="@+id/nameEditText"
+        app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
 
     <EditText
-        android:id="@+id/ed_amount"
+        android:id="@+id/priceEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintLeft_toLeftOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintLeft_toLeftOf="@+id/priceTextView"
+        app:layout_constraintTop_toBottomOf="@+id/priceTextView"
         tools:text="60" />
 
     <Button
@@ -83,7 +83,7 @@
         android:layout_marginTop="31dp"
         android:onClick="add"
         android:text="@string/add"
-        app:layout_constraintLeft_toLeftOf="@+id/ed_amount"
-        app:layout_constraintTop_toBottomOf="@+id/ed_amount" />
+        app:layout_constraintLeft_toLeftOf="@+id/priceEditText"
+        app:layout_constraintTop_toBottomOf="@+id/priceEditText" />
 
 </android.support.constraint.ConstraintLayout>
