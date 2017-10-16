@@ -1,4 +1,4 @@
-package io.csie.chris.logger;
+package io.csie.chris.rxjava;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

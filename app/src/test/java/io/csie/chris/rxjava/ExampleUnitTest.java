@@ -1,4 +1,4 @@
-package io.csie.chris.logger;
+package io.csie.chris.rxjava;
 
 import org.junit.Test;
 
