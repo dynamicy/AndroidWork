@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import io.reactivex.Flowable;
 import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +30,15 @@ public class MainActivity extends AppCompatActivity {
         Flowable.just("Hello world1");
 
         Flowable.just("Hello world2").subscribe(System.out::println);
+
+        // Without java8
+        Flowable.just("Hello world3")
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String s) {
+                        System.out.println(s);
+                    }
+                });
 
         Observable<String> myObservable = Observable.just("Hello world3");
 
