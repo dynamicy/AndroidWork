@@ -1,4 +1,4 @@
-package io.csie.chris.keyredefine;
+package io.csie.chris.snackbar;
 
 import org.junit.Test;
 

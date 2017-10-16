@@ -1,16 +1,16 @@
-package io.csie.chris.keyredefine;
+package io.csie.chris.snackbar;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.KeyEvent;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,10 +29,26 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Snackbar snackbar = Snackbar
+                        .make(coordinatorLayout, "Message is deleted", Snackbar.LENGTH_LONG)
+                        .setAction("UNDO", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Snackbar.make(coordinatorLayout, "Message is restored!", Snackbar.LENGTH_SHORT).show();
+                            }
+                        });
+
+                snackbar.show();
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Snackbar.make(coordinatorLayout, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
     }
 
     @Override
@@ -51,34 +67,28 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+
+            Snackbar snackbar = Snackbar
+                    .make(coordinatorLayout, "No internet connection!", Snackbar.LENGTH_LONG)
+                    .setAction("RETRY", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                        }
+                    });
+
+            // Changing message text color
+            snackbar.setActionTextColor(Color.RED);
+
+            // Changing action button text color
+            View sbView = snackbar.getView();
+            TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+            textView.setTextColor(Color.YELLOW);
+            snackbar.show();
+
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-
-        // your code
-//        Toast.makeText(this, "onBackPressed!", Toast.LENGTH_LONG);
-        Snackbar.make(coordinatorLayout, "onBackPressed", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            // your code
-//            Toast.makeText(this, "KeyEvent.KEYCODE_BACK!", Toast.LENGTH_LONG);
-            Snackbar.make(coordinatorLayout, "KeyEvent.KEYCODE_BACK", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-            return true;
-        } else if (keyCode == KeyEvent.KEYCODE_HOME) {
-            Snackbar.make(coordinatorLayout, "KeyEvent.KEYCODE_HOME", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-            return true;
-        }
-
-        return super.onKeyDown(keyCode, event);
-    }
 }
