@@ -1,4 +1,4 @@
-package io.csie.chris.snackbar;
+package io.csie.chris.logger;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -18,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Logger.d("onCreate");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -34,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("UNDO", new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Snackbar.make(coordinatorLayout, "Message is restored!", Snackbar.LENGTH_SHORT).show();
+                                Logger.d("Message is restored!");
+                                Snackbar.make(view, "Message is restored!", Snackbar.LENGTH_SHORT).show();
                             }
                         });
 
@@ -45,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
+
+        Logger.d("onResume");
+
         super.onResume();
 
         Snackbar.make(coordinatorLayout, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -53,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
+        Logger.d("onCreateOptionsMenu");
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;

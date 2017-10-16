@@ -1,4 +1,4 @@
-package io.csie.chris.snackbar;
+package io.csie.chris.logger;
 
 import org.junit.Test;
 
