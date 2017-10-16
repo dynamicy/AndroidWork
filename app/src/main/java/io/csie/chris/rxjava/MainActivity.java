@@ -1,13 +1,12 @@
 package io.csie.chris.rxjava;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
+
+import io.reactivex.Flowable;
+import io.reactivex.Observable;
+import io.reactivex.disposables.Disposable;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,52 +20,38 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar snackbar = Snackbar
-                        .make(view, "Message is deleted", Snackbar.LENGTH_LONG)
-                        .setAction("UNDO", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                Logger.d("Message is restored!");
-                                Snackbar.make(view, "Message is restored!", Snackbar.LENGTH_SHORT).show();
-                            }
-                        });
-
-                snackbar.show();
-            }
-        });
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-    }
+        Flowable.just("Hello world1");
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+        Flowable.just("Hello world2").subscribe(System.out::println);
 
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+        Observable<String> myObservable = Observable.just("Hello world3");
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        Disposable myObservable1 = Observable.just("Hello world4").subscribe(System.out::println);
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+        Disposable myObservable2 = Observable.just("Hello world5")
+                .map(s -> s + " 777")
+                .subscribe(System.out::println);
 
-        return super.onOptionsItemSelected(item);
+        Disposable myObservable4 = Observable.just("Hello world6")
+                .map(String::hashCode)
+                .subscribe(i -> System.out.println(Integer.toString(i)));
+
+        Disposable myObservable5 = Observable.just("Hello world7")
+                .map(String::hashCode)
+                .map(i -> Integer.toString(i))
+                .subscribe(System.out::println);
+
+        Disposable myObservable6 = Observable.just("Hello world8")
+                .map(s -> s + " 999")
+                .map(String::hashCode)
+                .map(i -> Integer.toString(i))
+                .subscribe(System.out::println);
     }
 
 }
