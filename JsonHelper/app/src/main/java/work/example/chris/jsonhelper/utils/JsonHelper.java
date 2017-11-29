@@ -46,6 +46,10 @@ public class JsonHelper {
         return getJsonFromRaw(context, DataContract.DataResource);
     }
 
+    public static RecordSets getModelFromRaw(Context context) {
+        return getModelFromRaw(context, DataContract.DataResource);
+    }
+
     public static RecordSets getModelFromRaw(Context context, int resource) {
 
         String json = getJsonFromRaw(context, resource);
