@@ -1,6 +1,6 @@
 package work.example.chris.recyclerview.common;
 
-import work.example.chris.jsonhelper.R;
+import work.example.chris.recyclerview.R;
 
 public class DataContract {
 

@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Type;
 
-import work.example.chris.jsonhelper.common.DataContract;
-import work.example.chris.jsonhelper.model.RecordSets;
+import work.example.chris.recyclerview.common.DataContract;
+import work.example.chris.recyclerview.model.RecordSets;
 
 public class JsonHelper {
 

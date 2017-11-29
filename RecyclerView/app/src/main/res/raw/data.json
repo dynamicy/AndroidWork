@@ -1,0 +1,64 @@
+{
+  "record": [
+    {
+      "cdate": "2016-11-08",
+      "name": "Apple",
+      "type": "fruit",
+      "cost": 120
+    },
+    {
+      "cdate": "2016-11-08",
+      "name": "Banna",
+      "type": "fruit",
+      "cost": 80
+    },
+    {
+      "cdate": "2016-11-09",
+      "name": "Car",
+      "type": "car",
+      "cost": 40
+    },
+    {
+      "cdate": "2016-11-10",
+      "name": "Dog",
+      "type": "animal",
+      "cost": 35
+    },
+    {
+      "cdate": "2016-11-11",
+      "name": "Elephent",
+      "type": "animal",
+      "cost": 1100
+    },
+    {
+      "cdate": "2016-11-13",
+      "name": "Fork",
+      "type": "tableware",
+      "cost": 115
+    },
+    {
+      "cdate": "2016-11-13",
+      "name": "Gas",
+      "type": "air",
+      "cost": 1120
+    },
+    {
+      "cdate": "2016-11-14",
+      "name": "Headset",
+      "type": "entertainment",
+      "cost": 75
+    },
+    {
+      "cdate": "2016-11-14",
+      "name": "Ice Cream",
+      "type": "food",
+      "cost": 75
+    },
+    {
+      "cdate": "2016-11-14",
+      "name": "Jelly",
+      "type": "food",
+      "cost": 55
+    }
+  ]
+}
