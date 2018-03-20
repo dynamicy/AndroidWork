@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">HandlerWithMsgPassing</string>
+    <string name="hint">Task Complete!</string>
+</resources>
