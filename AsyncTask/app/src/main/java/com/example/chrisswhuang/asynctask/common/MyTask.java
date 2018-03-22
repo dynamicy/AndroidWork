@@ -12,7 +12,7 @@ import com.example.chrisswhuang.asynctask.view.IView;
  * @author chris
  * @version 1.0
  */
-public class MyTask extends AsyncTask<String, Integer, String> {
+public class MyTask extends AsyncTask<Integer, Integer, String> {
 
     private IView myView;
 
@@ -29,11 +29,17 @@ public class MyTask extends AsyncTask<String, Integer, String> {
     }
 
     @Override
-    protected String doInBackground(String... strings) {
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+    protected String doInBackground(Integer... integers) {
+
+        for (int i = 0; i < 10; i++) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            publishProgress(integers[0]);
+
         }
         return null;
     }
@@ -42,6 +48,7 @@ public class MyTask extends AsyncTask<String, Integer, String> {
     protected void onProgressUpdate(Integer... values) {
         super.onProgressUpdate(values);
 
+        myView.setText(R.string.processing);
         myView.updateProgressBar(values[0]);
     }
 

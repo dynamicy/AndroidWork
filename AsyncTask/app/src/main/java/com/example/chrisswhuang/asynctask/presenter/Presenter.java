@@ -20,6 +20,6 @@ public class Presenter implements IPresenter {
 
     @Override
     public void doThreadStuff() {
-        new MyTask(myView).execute();
+        new MyTask(myView).execute(10);
     }
 }

@@ -19,10 +19,13 @@ import com.example.chrisswhuang.asynctask.presenter.Presenter;
  */
 public class MainActivity extends AppCompatActivity implements IView {
 
+    // Progress bar
     private ProgressBar progressBar;
 
+    // Result text view
     private TextView resultTextView;
 
+    // Presenter
     private IPresenter presenter;
 
     @Override
