@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">HandlerWithMsgPassing</string>
     <string name="hint">Task Complete!</string>
+    <string name="goto_another_activity">Goto Another Activity</string>
 </resources>
