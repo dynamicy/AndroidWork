@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Encryption</string>
+    <string name="original_message">Original Message:</string>
+    <string name="encrypted_message">Encrypted Message:</string>
+    <string name="encryption_type">Encryption Type:</string>
+    <string name="encryption">Encryption</string>
+</resources>
