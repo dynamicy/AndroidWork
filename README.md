@@ -13,3 +13,4 @@ Android clients.
 * RecyclerView
 * SQLiteHelper
 * Android Service
+* Glide
