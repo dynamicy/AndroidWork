@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TimeZoneApp</string>
+    <string name="datetime">DateTime:</string>
+    <string name="datetimezone">DateTimeZone:</string>
+</resources>
