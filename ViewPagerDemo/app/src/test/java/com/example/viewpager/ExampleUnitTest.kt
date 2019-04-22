@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.viewpager
 
 import org.junit.Test
 

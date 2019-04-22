@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.viewpager
 
 import android.content.Context
 import android.view.LayoutInflater

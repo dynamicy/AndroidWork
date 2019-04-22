@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.viewpager
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,5 +11,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         view_pager.adapter = ViewPagerAdapter(this)
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        println()
     }
 }
