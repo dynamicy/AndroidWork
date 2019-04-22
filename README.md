@@ -15,3 +15,4 @@ Android clients.
 * Android Service
 * Glide
 * TimeZone(Joda-Time)
+* ViewPager + activities
