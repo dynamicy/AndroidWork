@@ -5,29 +5,35 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-            android:name=".MyApplication"
+            android:name=".app.MyApplication"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-
-        <!-- MainActivity -->
+        <activity android:name=".view.AnotherActivity">
+        </activity>
+        <activity android:name=".view.ChildActivity">
+        </activity>
+        <activity android:name=".view.SlaveActivity">
+        </activity> <!-- MainActivity -->
         <activity
-                android:name=".MainActivity"
+                android:name=".view.MainActivity"
                 android:launchMode="singleTask"
                 android:screenOrientation="portrait">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
 
             <!-- Branch URI Scheme -->
             <intent-filter>
                 <data android:scheme="androidexample"/>
+
                 <action android:name="android.intent.action.VIEW"/>
+
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
             </intent-filter>
@@ -35,31 +41,36 @@
             <!-- Branch App Links (optional) -->
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW"/>
+
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
                 <!-- Default Link Domain -->
-                <data android:scheme="https" android:host="1daiw.app.link"/>
+                <data
+                        android:host="1daiw.app.link"
+                        android:scheme="https"/>
                 <!-- Alternate Link Domain -->
-                <data android:scheme="https" android:host="1daiw-alternate.app.link"/>
+                <data
+                        android:host="1daiw-alternate.app.link"
+                        android:scheme="https"/>
             </intent-filter>
-
-        </activity>
-
-        <!-- Branch init -->
-        <meta-data android:name="io.branch.sdk.BranchKey"
-                   android:value="key_live_ngSEDjeBjbvyz4tgaFab4oiavrko7FzH"/>
-        <meta-data android:name="io.branch.sdk.BranchKey.test"
-                   android:value="key_test_doSttndtnhyxq6rmlqjLGomeDuoiXFs9"/>
-        <meta-data android:name="io.branch.sdk.TestMode"
-                   android:value="false"/> <!-- Set to true to use Branch_Test_Key -->
-
+        </activity> <!-- Branch init -->
+        <meta-data
+                android:name="io.branch.sdk.BranchKey"
+                android:value="key_live_ngSEDjeBjbvyz4tgaFab4oiavrko7FzH"/>
+        <meta-data
+                android:name="io.branch.sdk.BranchKey.test"
+                android:value="key_test_doSttndtnhyxq6rmlqjLGomeDuoiXFs9"/>
+        <meta-data
+                android:name="io.branch.sdk.TestMode"
+                android:value="false"/> <!-- Set to true to use Branch_Test_Key -->
         <!-- Branch install referrer tracking -->
-        <receiver android:name="io.branch.referral.InstallListener" android:exported="true">
+        <receiver
+                android:name="io.branch.referral.InstallListener"
+                android:exported="true">
             <intent-filter>
-                <action android:name="com.android.vending.INSTALL_REFERRER" />
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
             </intent-filter>
         </receiver>
-
     </application>
 
 </manifest>

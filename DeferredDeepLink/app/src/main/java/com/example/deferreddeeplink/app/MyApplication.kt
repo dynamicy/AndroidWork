@@ -1,4 +1,4 @@
-package com.example.deferreddeeplink
+package com.example.deferreddeeplink.app
 
 import android.app.Application
 import io.branch.referral.Branch

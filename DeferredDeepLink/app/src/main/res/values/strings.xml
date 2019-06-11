@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Deferred Deep Link</string>
+    <string name="slave_activity">Slave Activity</string>
+    <string name="child_activity">Child Activity</string>
+    <string name="anotheractivity">AnotherActivity</string>
+    <string name="main_activity">Main Activity</string>
 </resources>
