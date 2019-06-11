@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.deferreddeeplink">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -9,13 +11,47 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        <!-- MainActivity -->
+        <activity
+                android:name=".MainActivity"
+                android:launchMode="singleTask"
+                android:screenOrientation="portrait">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
+            <!-- Branch URI Scheme -->
+            <intent-filter>
+                <data android:scheme="androidexample"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+
+            <!-- Branch App Links (optional) -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <!-- Default Link Domain -->
+                <data android:scheme="https" android:host="1daiw.app.link"/>
+                <!-- Alternate Link Domain -->
+                <data android:scheme="https" android:host="1daiw-alternate.app.link"/>
+            </intent-filter>
+
         </activity>
+
+        <!-- Branch init -->
+        <meta-data android:name="io.branch.sdk.BranchKey"
+                   android:value="key_live_ngSEDjeBjbvyz4tgaFab4oiavrko7FzH"/>
+        <meta-data android:name="io.branch.sdk.BranchKey.test"
+                   android:value="key_test_doSttndtnhyxq6rmlqjLGomeDuoiXFs9"/>
+        <meta-data android:name="io.branch.sdk.TestMode"
+                   android:value="false"/> <!-- Set to true to use Branch_Test_Key -->
+
     </application>
 
 </manifest>
