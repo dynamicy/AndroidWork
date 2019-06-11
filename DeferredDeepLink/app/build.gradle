@@ -38,6 +38,6 @@ dependencies {
 
     // optional
     implementation 'androidx.browser:browser:1.0.0' // Chrome Tab matching
-    implementation 'com.google.android.gms:play-services-ads:17.2.1' // GAID matching
+//    implementation 'com.google.android.gms:play-services-ads:17.2.1' // GAID matching
     implementation 'com.google.firebase:firebase-appindexing:18.0.0' // App indexing
 }
