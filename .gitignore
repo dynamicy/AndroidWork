@@ -54,3 +54,6 @@ google-services.json
 freeline.py
 freeline/
 freeline_project_description.json
+DeferredDeepLink/android.jks.old
+DeferredDeepLink/app/debug/output.json
+DeferredDeepLink/app/release/output.json
