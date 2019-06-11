@@ -3,6 +3,7 @@ package com.example.horizonrecyclerview.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +19,20 @@ class MyAdapter(private val versionList: ArrayList<Version>) : RecyclerView.Adap
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindItems(versionList[position])
+
+        holder.itemView.setOnFocusChangeListener { view, hasFocus ->
+            if (hasFocus) {
+                // run scale animation and make it bigger
+                val anim = AnimationUtils.loadAnimation(view.context, R.anim.scale_in_tv)
+                holder.itemView.startAnimation(anim)
+                anim.fillAfter = true
+            } else {
+                // run scale animation and make it smaller
+                val anim = AnimationUtils.loadAnimation(view.context, R.anim.scale_out_tv)
+                holder.itemView.startAnimation(anim)
+                anim.fillAfter = true
+            }
+        }
     }
 
     override fun getItemCount(): Int {
