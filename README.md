@@ -1,5 +1,7 @@
 # AndroidWork
 
+[![Build Status](https://travis-ci.org/dynamicy/AndroidWork.svg?branch=master)](https://travis-ci.org/dynamicy/AndroidWork.svg?branch=master)
+
 Android clients.
 
 ## Features
@@ -16,3 +18,4 @@ Android clients.
 * Glide
 * TimeZone(Joda-Time)
 * ViewPager + activities
+
